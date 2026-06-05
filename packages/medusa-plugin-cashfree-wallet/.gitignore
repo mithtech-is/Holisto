@@ -1,0 +1,8 @@
+
+node_modules
+.medusa
+dist
+*.tgz
+*.log
+.env
+.DS_Store

@@ -1,0 +1,19 @@
+# Dependencies & build output — regenerated with `npm install` + `npm run build`
+node_modules/
+.medusa/
+dist/
+
+# Packed artifacts
+*.tgz
+
+# Secrets & local env (commit .env.example instead)
+.env
+.env.*
+!.env.example
+
+# Logs & OS cruft
+*.log
+.DS_Store
+
+# Syncthing conflict files
+*.sync-conflict-*
