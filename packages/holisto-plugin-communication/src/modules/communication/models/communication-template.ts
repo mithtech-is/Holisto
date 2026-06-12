@@ -1,0 +1,31 @@
+// @ts-nocheck
+import { model } from "@medusajs/framework/utils"
+
+export const CommunicationTemplate = model.define("communication_template", {
+  id: model.id().primaryKey(),
+  tenant_key: model.text().default("default"),
+  channel: model.enum(["email", "sms", "whatsapp"]),
+  slug: model.text(),
+  name: model.text().nullable(),
+  label: model.text().nullable(),
+  description: model.text().nullable(),
+  category: model.text().nullable(),
+  language: model.text().nullable(),
+  template_type: model.text().nullable(),
+  subject: model.text().nullable(),
+  body: model.text().nullable(),
+  html: model.text().nullable(),
+  mjml: model.text().nullable(),
+  components: model.json().nullable(),
+  variables: model.json().nullable(),
+  media: model.json().nullable(),
+  is_system: model.boolean().default(false),
+  is_otp: model.boolean().default(false),
+  dlt_template_id: model.text().nullable(),
+  dlt_status: model.text().nullable(),
+  provider_template_id: model.text().nullable(),
+  provider_status: model.text().nullable(),
+  provider_pushed_at: model.dateTime().nullable(),
+  provider_last_synced_at: model.dateTime().nullable(),
+  provider_last_error: model.text().nullable(),
+})

@@ -1,0 +1,94 @@
+{
+  "name": "@holisto/holisto-plugin-communication",
+  "version": "0.2.0",
+  "description": "Multi-channel communication hub for Medusa v2 — Email (SMTP), SMS (MSG91), WhatsApp (Polygin), Phone OTP, transactional templates, event-driven notifications, and delivery logs.",
+  "keywords": [
+    "medusa-plugin",
+    "medusa-v2",
+    "communication",
+    "sms",
+    "whatsapp",
+    "otp",
+    "email",
+    "notifications",
+    "transactional",
+    "msg91",
+    "polygin",
+    "nodemailer"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": ".medusa/server/index.js",
+  "types": ".medusa/server/index.d.ts",
+  "files": [
+    ".medusa/server",
+    "src"
+  ],
+  "scripts": {
+    "build": "medusa plugin:build",
+    "dev": "medusa plugin:develop",
+    "test": "node --experimental-vm-modules --experimental-loader ./tests/loader.mjs tests/*.test.mjs 2>/dev/null || node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "medusa plugin:build",
+    "lint": "echo 'No linter configured'",
+    "postinstall": "echo 'Skipping auto-build'"
+  },
+  "peerDependencies": {
+    "@medusajs/admin-sdk": "^2.0.0",
+    "@medusajs/framework": "^2.0.0",
+    "@medusajs/icons": "^2.0.0",
+    "@medusajs/ui": "^4.0.0",
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.600.0",
+    "mjml": "^4.15.3",
+    "nodemailer": "^6.9.13",
+    "resend": "^3.5.0",
+    "twilio": "^5.0.4",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@medusajs/admin-sdk": "^2.0.0",
+    "@medusajs/cli": "^2.15.5",
+    "@medusajs/framework": "^2.0.0",
+    "@medusajs/icons": "^2.0.0",
+    "@medusajs/medusa": "^2.15.5",
+    "@medusajs/ui": "^4.0.0",
+    "@types/nodemailer": "^6.4.0",
+    "@types/react": "^18.2.0",
+    "react": "^18.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/holisto-plugin-communication.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/holisto-plugin-communication/issues"
+  },
+  "homepage": "https://github.com/your-org/holisto-plugin-communication#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "medusa": {
+    "name": "Communication Plugin",
+    "description": "Adds a complete Communication Center to Medusa Admin — email, SMS, WhatsApp, OTP, templates, and event-driven notifications.",
+    "version": "0.2.0",
+    "modules": [
+      "./src/modules/communication"
+    ],
+    "admin": {
+      "routes": [
+        {
+          "path": "/app/communication",
+          "file": "./src/admin/routes/communication/page.tsx"
+        }
+      ]
+    }
+  }
+}

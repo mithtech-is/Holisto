@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "declaration": false,
+    "noEmitOnError": false,
+    "outDir": ".medusa/server"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".medusa"
+  ]
+}

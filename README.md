@@ -12,8 +12,8 @@ receive this repo — they install the **published, compiled package** (only the
 
 | Package | What it is |
 |---|---|
-| [`@holisto/medusa-plugin-cashfree-wallet`](packages/medusa-plugin-cashfree-wallet) | Cashfree-backed custodial INR wallet: virtual accounts (auto-collect deposits), Secure ID KYC (PAN/Aadhaar/Bank/Demat), held-order auto-capture, promo balance, fees, and an admin console. |
-| [`@holisto/medusa-plugin-ovo`](packages/medusa-plugin-ovo) | OVO — Online Visibility Optimization: SEO/AEO/LLMO auditing, keyword & citation tracking, Search Console / Bing / IndexNow integrations. |
+| [`@holisto/holisto-plugin-cashfree-wallet`](packages/holisto-plugin-cashfree-wallet) | Cashfree-backed custodial INR wallet: virtual accounts (auto-collect deposits), Secure ID KYC (PAN/Aadhaar/Bank/Demat), held-order auto-capture, promo balance, fees, and an admin console. |
+| [`@holisto/holisto-plugin-ovo`](packages/holisto-plugin-ovo) | OVO — Online Visibility Optimization: SEO/AEO/LLMO auditing, keyword & citation tracking, Search Console / Bing / IndexNow integrations. |
 
 The two are **independent** — a client can install either or both.
 
@@ -22,7 +22,7 @@ The two are **independent** — a client can install either or both.
 Each package is a self-contained Medusa plugin. From a package folder:
 
 ```bash
-cd packages/medusa-plugin-cashfree-wallet
+cd packages/holisto-plugin-cashfree-wallet
 npm install
 npm run build      # compiles to .medusa/server (gitignored)
 npm pack           # produces a .tgz for local testing / distribution
@@ -44,14 +44,14 @@ Clients get the compiled package, gated by access — never this repo. Options:
 ## Install into a client's existing Medusa app
 
 ```bash
-npm install @holisto/medusa-plugin-cashfree-wallet
+npm install @holisto/holisto-plugin-cashfree-wallet
 ```
 ```ts
 // medusa-config.ts
-plugins: [{ resolve: "@holisto/medusa-plugin-cashfree-wallet", options: {} }],
+plugins: [{ resolve: "@holisto/holisto-plugin-cashfree-wallet", options: {} }],
 modules: [
   { resolve: "@medusajs/medusa/payment",
-    options: { providers: [{ resolve: "@holisto/medusa-plugin-cashfree-wallet/providers/cashfree_wallet", id: "cashfree-wallet" }] } },
+    options: { providers: [{ resolve: "@holisto/holisto-plugin-cashfree-wallet/providers/cashfree_wallet", id: "cashfree-wallet" }] } },
 ],
 ```
 ```bash
